@@ -1,0 +1,47 @@
+Color	Histology
+#a50026	ATRT
+#d73027	Ewing sarcoma
+#d73027	Rhabdoid tumor
+#f46d43	Extracranial Rhabdoid
+#fdae61	RMS
+#fdae61	Fusion- RMS
+#fee090	Fusion+ RMS
+#fdae61	Embryonal RMS
+#fee090	Alveolar RMS
+#ffffbf	Hepatoblastoma
+#e0f3f8	Meningioma
+#abd9e9	Neuroblastoma
+#74add1	Osteosarcoma
+#4575b4	PXA
+#313695	Wilms tumor
+#FFFFFF	Adipose Tissue
+#FFFFFF	Adrenal Gland
+#FFFFFF	Blood
+#FFFFFF	Blood Vessel
+#FFFFFF	Bone Marrow
+#FFFFFF	Bladder
+#FFFFFF	Brain
+#FFFFFF	Breast
+#FFFFFF	Colon
+#FFFFFF	Esophagus
+#FFFFFF	Fallopian Tube
+#FFFFFF	Heart
+#FFFFFF	Kidney
+#FFFFFF	Liver
+#FFFFFF	Lung
+#FFFFFF	Muscle
+#FFFFFF	Nerve
+#FFFFFF	Ovary
+#FFFFFF	Pancreas
+#FFFFFF	Pituitary
+#FFFFFF	Prostate
+#FFFFFF	Small Intestine
+#FFFFFF	Salivary Gland
+#FFFFFF	Skin
+#FFFFFF	Stomach
+#FFFFFF	Spleen
+#FFFFFF	Testis
+#FFFFFF	Thyroid
+#FFFFFF	Uterus
+#FFFFFF	Cervix Uteri
+#FFFFFF	Vagina
