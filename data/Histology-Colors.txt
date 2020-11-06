@@ -1,7 +1,7 @@
 Color	Histology
 #a50026	ATRT
 #d73027	Ewing sarcoma
-#d73027	Rhabdoid tumor
+#d73027	Rhabdoid supertumor
 #f46d43	Extracranial Rhabdoid
 #fdae61	RMS
 #fdae61	Fusion- RMS
