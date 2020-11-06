@@ -1,106 +1,106 @@
-SAMPID	CD276_tpm	Histology
-BT-29	109.4932	ATRT
-CHLA-258	14.73321	Ewing sarcoma
-CHLA-79	79.68826	Neuroblastoma
-COG-N-415x	100.2508	Neuroblastoma
-COG-N-421x	113.055	Neuroblastoma
-COG-N-424x	72.06335	Neuroblastoma
-COG-N-426x-Felix-PDX	148.1584	Neuroblastoma
-COG-N-440x	78.71708	Neuroblastoma
-COG-N-452x	213.2936	Neuroblastoma
-COG-N-453x	179.8017	Neuroblastoma
-COG-N-471x	111.8779	Neuroblastoma
-COG-N-480x	146.5864	Neuroblastoma
-COG-N-496x	132.9524	Neuroblastoma
-COG-N-519x	47.27376	Neuroblastoma
-COG-N-549x	116.6355	Neuroblastoma
-COG-N-557x	165.9878	Neuroblastoma
-COG-N-560x	104.6719	Neuroblastoma
-COG-N-561x	133.0757	Neuroblastoma
-COG-N-564x	136.386	Neuroblastoma
-COG-N-590x	84.95316	Neuroblastoma
-COG-N-603x	108.1529	Neuroblastoma
-COG-N-619x	74.16714	Neuroblastoma
-COG-N-620x	77.94825	Neuroblastoma
-COG-N-623x	94.9145	Neuroblastoma
-COG-N-624x	64.94282	Neuroblastoma
-COG-N-625x	104.4765	Neuroblastoma
-ES-1	44.26726	Ewing sarcoma
-ES-4	42.16276	Ewing sarcoma
-ES-6	37.42324	Ewing sarcoma
-ES-8	47.63539	Ewing sarcoma
-EW-5	17.58899	Ewing sarcoma
-EW-8	22.03754	Ewing sarcoma
-G401	82.69202	Extracranial Rhabdoid
-ICb-10593ATRT	119.0192	ATRT
-ICb-5108ATRT	222.6985	ATRT
-ICb-L1115ATRT	73.46518	ATRT
-IRS-56	37.73861	Fusion- RMS
-IRS-68	202.5119	Fusion- RMS
-KT-10	174.955	Wilms tumor
-KT-11	127.7365	Wilms tumor
-KT-12	271.5795	Extracranial Rhabdoid
-KT-13	132.2851	Wilms tumor
-KT-14	123.9739	Extracranial Rhabdoid
-KT-18	173.6398	Wilms tumor
-KT-6	52.66883	Wilms tumor
-KT-8	175.1545	Wilms tumor
-KT-9	138.2396	Wilms tumor
-NB-1382	91.41925	Neuroblastoma
-NB-1643	77.07998	Neuroblastoma
-NB-1691	76.01779	Neuroblastoma
-NB-1771	68.91559	Neuroblastoma
-NB-EBc1	130.6539	Neuroblastoma
-NB-SD	119.7089	Neuroblastoma
-NCH-ARMS-2-NCH-S13-7484	95.86542	Fusion+ RMS
-NCH-ERMS-1-NCH-RMS-1	108.1013	Fusion- RMS
-NCH-HEP1	96.26538	Hepatoblastoma
-NCH-NB-1	107.6335	Neuroblastoma
-NCH-OS-1	93.49544	Osteosarcoma
-NCH-RBD-1	0	Extracranial Rhabdoid
-NCH-RBD-2	140.7098	Extracranial Rhabdoid
-NCH-RBD-4	100.4637	ATRT
-NCH-WT-4	238.0051	Wilms tumor
-NCH-WT-5	146.3418	Wilms tumor
-NCH-WT-6-S13-1506	109.0078	Wilms tumor
-NCH-WT-7	119.9287	Wilms tumor
-NCH-WT-8-S13-3700	188.8168	Wilms tumor
-OS-1	347.0974	Osteosarcoma
-OS-17	107.5967	Osteosarcoma
-OS-2	163.452	Osteosarcoma
-OS-29	211.2009	Osteosarcoma
-OS-31	98.26244	Osteosarcoma
-OS-32	72.93151	Osteosarcoma
-OS-33	466.6999	Osteosarcoma
-OS-34	104.8812	Osteosarcoma
-OS-34-SJ	214.4109	Osteosarcoma
-OS-41	773.5064	Osteosarcoma
-OS-42	197.3569	Osteosarcoma
-OS-43-TPMX	67.47795	Osteosarcoma
-OS-44	326.4636	Osteosarcoma
-OS-44-KPDX-x	94.13964	Osteosarcoma
-OS-45-TSX-pr1	238.9697	Osteosarcoma
-OS-46	55.75488	Osteosarcoma
-OS-46-AOX	204.1511	Osteosarcoma
-OS-47-SJ	587.1984	Osteosarcoma
-OS-48	148.1919	Osteosarcoma
-OS-49-SJ	788.7793	Osteosarcoma
-OS-49-STTX-sc	146.7187	Osteosarcoma
-OS-52-SJ	275.7376	Osteosarcoma
-OS-54-OHS-x	258.2511	Osteosarcoma
-OS-54-SJ	103.7477	Osteosarcoma
-OS-55	134.6288	Osteosarcoma
-OS-55-SBX	224.2003	Osteosarcoma
-OS-56	137.027	Osteosarcoma
-OS-56-TTX	93.52555	Osteosarcoma
-OS-60	168.3801	Osteosarcoma
-Rh-10	60.52882	Fusion+ RMS
-Rh-12	67.54078	Fusion- RMS
-Rh-30	68.39994	Fusion+ RMS
-Rh-30R	73.55739	Fusion+ RMS
-Rh-36	125.1253	Fusion- RMS
-Rh-41	115.6778	Fusion+ RMS
-Rh-65	54.88187	Fusion+ RMS
-Rh-70	107.607	Fusion- RMS
-SK-NEP-1	46.99067	Ewing sarcoma
-TC-71	26.75424	Ewing sarcoma
+SAMPID	CD276_tpm	Histology	InStudy
+BT-29	109.4932	ATRT	In Study
+CHLA-258	14.73321	Ewing sarcoma	In Study
+CHLA-79	79.68826	Neuroblastoma	Not In Study
+COG-N-415x	100.2508	Neuroblastoma	In Study
+COG-N-421x	113.055	Neuroblastoma	In Study
+COG-N-424x	72.06335	Neuroblastoma	Not In Study
+COG-N-426x-Felix-PDX	148.1584	Neuroblastoma	In Study
+COG-N-440x	78.71708	Neuroblastoma	Not In Study
+COG-N-452x	213.2936	Neuroblastoma	In Study
+COG-N-453x	179.8017	Neuroblastoma	In Study
+COG-N-471x	111.8779	Neuroblastoma	Not In Study
+COG-N-480x	146.5864	Neuroblastoma	In Study
+COG-N-496x	132.9524	Neuroblastoma	In Study
+COG-N-519x	47.27376	Neuroblastoma	In Study
+COG-N-549x	116.6355	Neuroblastoma	Not In Study
+COG-N-557x	165.9878	Neuroblastoma	Not In Study
+COG-N-560x	104.6719	Neuroblastoma	Not In Study
+COG-N-561x	133.0757	Neuroblastoma	Not In Study
+COG-N-564x	136.386	Neuroblastoma	Not In Study
+COG-N-590x	84.95316	Neuroblastoma	Not In Study
+COG-N-603x	108.1529	Neuroblastoma	Not In Study
+COG-N-619x	74.16714	Neuroblastoma	Not In Study
+COG-N-620x	77.94825	Neuroblastoma	Not In Study
+COG-N-623x	94.9145	Neuroblastoma	Not In Study
+COG-N-624x	64.94282	Neuroblastoma	Not In Study
+COG-N-625x	104.4765	Neuroblastoma	Not In Study
+ES-1	44.26726	Ewing sarcoma	In Study
+ES-4	42.16276	Ewing sarcoma	In Study
+ES-6	37.42324	Ewing sarcoma	In Study
+ES-8	47.63539	Ewing sarcoma	Not In Study
+EW-5	17.58899	Ewing sarcoma	In Study
+EW-8	22.03754	Ewing sarcoma	In Study
+G401	82.69202	Extracranial Rhabdoid	Not In Study
+ICb-10593ATRT	119.0192	ATRT	Not In Study
+ICb-5108ATRT	222.6985	ATRT	Not In Study
+ICb-L1115ATRT	73.46518	ATRT	Not In Study
+IRS-56	37.73861	Fusion- RMS	In Study
+IRS-68	202.5119	Fusion- RMS	Not In Study
+KT-10	174.955	Wilms tumor	In Study
+KT-11	127.7365	Wilms tumor	In Study
+KT-12	271.5795	Extracranial Rhabdoid	In Study
+KT-13	132.2851	Wilms tumor	In Study
+KT-14	123.9739	Extracranial Rhabdoid	In Study
+KT-18	173.6398	Wilms tumor	Not In Study
+KT-6	52.66883	Wilms tumor	Not In Study
+KT-8	175.1545	Wilms tumor	Not In Study
+KT-9	138.2396	Wilms tumor	Not In Study
+NB-1382	91.41925	Neuroblastoma	In Study
+NB-1643	77.07998	Neuroblastoma	In Study
+NB-1691	76.01779	Neuroblastoma	In Study
+NB-1771	68.91559	Neuroblastoma	Not In Study
+NB-EBc1	130.6539	Neuroblastoma	In Study
+NB-SD	119.7089	Neuroblastoma	In Study
+NCH-ARMS-2-NCH-S13-7484	95.86542	Fusion+ RMS	Not In Study
+NCH-ERMS-1-NCH-RMS-1	108.1013	Fusion- RMS	Not In Study
+NCH-HEP1	96.26538	Hepatoblastoma	Not In Study
+NCH-NB-1	107.6335	Neuroblastoma	Not In Study
+NCH-OS-1	93.49544	Osteosarcoma	Not In Study
+NCH-RBD-1	0	Extracranial Rhabdoid	Not In Study
+NCH-RBD-2	140.7098	Extracranial Rhabdoid	Not In Study
+NCH-RBD-4	100.4637	ATRT	Not In Study
+NCH-WT-4	238.0051	Wilms tumor	Not In Study
+NCH-WT-5	146.3418	Wilms tumor	Not In Study
+NCH-WT-6-S13-1506	109.0078	Wilms tumor	Not In Study
+NCH-WT-7	119.9287	Wilms tumor	Not In Study
+NCH-WT-8-S13-3700	188.8168	Wilms tumor	Not In Study
+OS-1	347.0974	Osteosarcoma	In Study
+OS-17	107.5967	Osteosarcoma	Not In Study
+OS-2	163.452	Osteosarcoma	In Study
+OS-29	211.2009	Osteosarcoma	Not In Study
+OS-31	98.26244	Osteosarcoma	In Study
+OS-32	72.93151	Osteosarcoma	Not In Study
+OS-33	466.6999	Osteosarcoma	In Study
+OS-34	104.8812	Osteosarcoma	Not In Study
+OS-34-SJ	214.4109	Osteosarcoma	Not In Study
+OS-41	773.5064	Osteosarcoma	Not In Study
+OS-42	197.3569	Osteosarcoma	Not In Study
+OS-43-TPMX	67.47795	Osteosarcoma	Not In Study
+OS-44	326.4636	Osteosarcoma	Not In Study
+OS-44-KPDX-x	94.13964	Osteosarcoma	Not In Study
+OS-45-TSX-pr1	238.9697	Osteosarcoma	Not In Study
+OS-46	55.75488	Osteosarcoma	Not In Study
+OS-46-AOX	204.1511	Osteosarcoma	Not In Study
+OS-47-SJ	587.1984	Osteosarcoma	Not In Study
+OS-48	148.1919	Osteosarcoma	Not In Study
+OS-49-SJ	788.7793	Osteosarcoma	Not In Study
+OS-49-STTX-sc	146.7187	Osteosarcoma	Not In Study
+OS-52-SJ	275.7376	Osteosarcoma	Not In Study
+OS-54-OHS-x	258.2511	Osteosarcoma	Not In Study
+OS-54-SJ	103.7477	Osteosarcoma	Not In Study
+OS-55	134.6288	Osteosarcoma	Not In Study
+OS-55-SBX	224.2003	Osteosarcoma	Not In Study
+OS-56	137.027	Osteosarcoma	Not In Study
+OS-56-TTX	93.52555	Osteosarcoma	Not In Study
+OS-60	168.3801	Osteosarcoma	Not In Study
+Rh-10	60.52882	Fusion+ RMS	Not In Study
+Rh-12	67.54078	Fusion- RMS	Not In Study
+Rh-30	68.39994	Fusion+ RMS	In Study
+Rh-30R	73.55739	Fusion+ RMS	In Study
+Rh-36	125.1253	Fusion- RMS	In Study
+Rh-41	115.6778	Fusion+ RMS	In Study
+Rh-65	54.88187	Fusion+ RMS	In Study
+Rh-70	107.607	Fusion- RMS	Not In Study
+SK-NEP-1	46.99067	Ewing sarcoma	In Study
+TC-71	26.75424	Ewing sarcoma	In Study
