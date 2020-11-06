@@ -50,8 +50,8 @@ fig1a
 
 ## PPTC,CD276 TPM
 ### data from Rokita et al. 2019
-### https://figshare.com/projects/Genomic_landscape_of_childhood_cancer_patient-derived_xenograft_models/38147
-### download 2019-02-15-pptc_rnaseq_hg38_matrix_244.RData; TPM
+### FPKM data available at https://figshare.com/projects/Genomic_landscape_of_childhood_cancer_patient-derived_xenograft_models/38147
+### Analysis: 
 
 # load PPTC tpm df
 pptc.tpm <- read.delim("data/PPTC-CD276-tpm.txt",header = T,sep = "\t")
