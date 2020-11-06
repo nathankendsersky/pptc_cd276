@@ -1,0 +1,156 @@
+SAMPID	Histology	minRTV
+NB-1691	Neuroblastoma	2.174616752
+NB-1691	Neuroblastoma	1.488096326
+OS-9	Osteosarcoma	0.636320179
+OS-9	Osteosarcoma	0.586550733
+OS-9	Osteosarcoma	0.528714542
+OS-9	Osteosarcoma	0.518579916
+OS-9	Osteosarcoma	0.50859836
+OS-9	Osteosarcoma	0.477428241
+OS-9	Osteosarcoma	0.459442837
+OS-9	Osteosarcoma	0.374777513
+OS-31	Osteosarcoma	0.288482296
+OS-1	Osteosarcoma	0.264589732
+OS-31	Osteosarcoma	0.261355202
+OS-1	Osteosarcoma	0.241707348
+COG-N-496x	Neuroblastoma	0.234970438
+ES-1	Ewing sarcoma	0.197291155
+OS-9	Osteosarcoma	0.181007259
+OS-1	Osteosarcoma	0.178257562
+OS-31	Osteosarcoma	0.158711767
+OS-9	Osteosarcoma	0.15156397
+NB-SD	Neuroblastoma	0.118001672
+NB-SD	Neuroblastoma	0.059141398
+NB-1643	Neuroblastoma	0.052734375
+COG-N-519x	Neuroblastoma	0.042660447
+KT-10	Wilms tumor	2.27e-07
+KT-11	Wilms tumor	1.64e-07
+KT-11	Wilms tumor	1.61e-07
+SK-NEP-1	Ewing sarcoma	1.56e-07
+Rh-18	Fusion- RMS	1.56e-07
+Rh-41	Fusion+ RMS	1.53e-07
+KT-11	Wilms tumor	1.53e-07
+Rh-18	Fusion- RMS	1.48e-07
+Rh-18	Fusion- RMS	1.48e-07
+KT-10	Wilms tumor	1.42e-07
+ES-6	Ewing sarcoma	1.39e-07
+Rh-30	Fusion+ RMS	1.36e-07
+Rh-18	Fusion- RMS	1.35e-07
+Rh-36	Fusion- RMS	1.31e-07
+KT-11	Wilms tumor	1.3e-07
+KT-10	Wilms tumor	1.29e-07
+Rh-41	Fusion+ RMS	1.27e-07
+Rh-41	Fusion+ RMS	1.24e-07
+ES-6	Ewing sarcoma	1.23e-07
+SK-NEP-1	Ewing sarcoma	1.22e-07
+Rh-18	Fusion- RMS	1.2e-07
+KT-10	Wilms tumor	1.18e-07
+KT-11	Wilms tumor	1.18e-07
+SK-NEP-1	Ewing sarcoma	1.17e-07
+Rh-18	Fusion- RMS	1.17e-07
+Rh-36	Fusion- RMS	1.17e-07
+Rh-30	Fusion+ RMS	1.17e-07
+KT-10	Wilms tumor	1.17e-07
+KT-11	Wilms tumor	1.17e-07
+ES-6	Ewing sarcoma	1.15e-07
+Rh-30	Fusion+ RMS	1.15e-07
+ES-1	Ewing sarcoma	1.14e-07
+ES-6	Ewing sarcoma	1.14e-07
+SK-NEP-1	Ewing sarcoma	1.14e-07
+ES-1	Ewing sarcoma	1.12e-07
+SK-NEP-1	Ewing sarcoma	1.12e-07
+Rh-41	Fusion+ RMS	1.12e-07
+SK-NEP-1	Ewing sarcoma	1.11e-07
+Rh-30	Fusion+ RMS	1.11e-07
+Rh-41	Fusion+ RMS	1.11e-07
+ES-6	Ewing sarcoma	1.1e-07
+SK-NEP-1	Ewing sarcoma	1.1e-07
+Rh-36	Fusion- RMS	1.09e-07
+Rh-36	Fusion- RMS	1.09e-07
+Rh-30	Fusion+ RMS	1.09e-07
+Rh-41	Fusion+ RMS	1.09e-07
+ES-6	Ewing sarcoma	1.08e-07
+Rh-41	Fusion+ RMS	1.08e-07
+KT-10	Wilms tumor	1.08e-07
+ES-1	Ewing sarcoma	1.07e-07
+Rh-18	Fusion- RMS	1.07e-07
+Rh-18	Fusion- RMS	1.07e-07
+ES-1	Ewing sarcoma	1.06e-07
+ES-1	Ewing sarcoma	1.06e-07
+Rh-18	Fusion- RMS	1.06e-07
+Rh-36	Fusion- RMS	1.06e-07
+Rh-41	Fusion+ RMS	1.06e-07
+Rh-36	Fusion- RMS	1.05e-07
+Rh-30	Fusion+ RMS	1.05e-07
+ES-6	Ewing sarcoma	1.04e-07
+ES-6	Ewing sarcoma	1.03e-07
+SK-NEP-1	Ewing sarcoma	1.03e-07
+ES-1	Ewing sarcoma	1.02e-07
+ES-6	Ewing sarcoma	1.02e-07
+Rh-36	Fusion- RMS	1.02e-07
+Rh-18	Fusion- RMS	1e-07
+Rh-30	Fusion+ RMS	1e-07
+SK-NEP-1	Ewing sarcoma	9.99e-08
+KT-11	Wilms tumor	9.96e-08
+KT-11	Wilms tumor	9.92e-08
+Rh-36	Fusion- RMS	9.91e-08
+KT-11	Wilms tumor	9.84e-08
+Rh-41	Fusion+ RMS	9.74e-08
+Rh-30	Fusion+ RMS	9.47e-08
+KT-11	Wilms tumor	9.41e-08
+Rh-30	Fusion+ RMS	9.31e-08
+ES-1	Ewing sarcoma	9.28e-08
+Rh-36	Fusion- RMS	9.12e-08
+KT-10	Wilms tumor	8.97e-08
+Rh-36	Fusion- RMS	8.66e-08
+KT-10	Wilms tumor	6.88e-08
+KT-10	Wilms tumor	9.85e-09
+COG-N-496x	Neuroblastoma	3.53e-09
+COG-N-519x	Neuroblastoma	3.43e-09
+COG-N-480x	Neuroblastoma	3.34e-09
+COG-N-421x	Neuroblastoma	3.33e-09
+COG-N-426x-Felix-PDX	Neuroblastoma	3.15e-09
+COG-N-452x	Neuroblastoma	2.96e-09
+COG-N-421x	Neuroblastoma	2.81e-09
+COG-N-415x	Neuroblastoma	2.79e-09
+COG-N-480x	Neuroblastoma	2.79e-09
+NB-1643	Neuroblastoma	2.71e-09
+COG-N-415x	Neuroblastoma	2.52e-09
+COG-N-426x-Felix-PDX	Neuroblastoma	2.51e-09
+NB-EBc1	Neuroblastoma	2.45e-09
+COG-N-453x	Neuroblastoma	2.4e-09
+COG-N-453x	Neuroblastoma	2.32e-09
+NB-EBc1	Neuroblastoma	2.28e-09
+COG-N-452x	Neuroblastoma	2.1e-09
+OS-1	Osteosarcoma	0
+OS-1	Osteosarcoma	0
+OS-1	Osteosarcoma	0
+OS-1	Osteosarcoma	0
+OS-1	Osteosarcoma	0
+OS-1	Osteosarcoma	0
+OS-2	Osteosarcoma	0
+OS-2	Osteosarcoma	0
+OS-2	Osteosarcoma	0
+OS-2	Osteosarcoma	0
+OS-2	Osteosarcoma	0
+OS-2	Osteosarcoma	0
+OS-2	Osteosarcoma	0
+OS-2	Osteosarcoma	0
+OS-2	Osteosarcoma	0
+OS-31	Osteosarcoma	0
+OS-31	Osteosarcoma	0
+OS-31	Osteosarcoma	0
+OS-31	Osteosarcoma	0
+OS-31	Osteosarcoma	0
+OS-31	Osteosarcoma	0
+OS-31	Osteosarcoma	0
+OS-33	Osteosarcoma	0
+OS-33	Osteosarcoma	0
+OS-33	Osteosarcoma	0
+OS-33	Osteosarcoma	0
+OS-33	Osteosarcoma	0
+OS-33	Osteosarcoma	0
+OS-33	Osteosarcoma	0
+OS-33	Osteosarcoma	0
+OS-33	Osteosarcoma	0
+OS-33	Osteosarcoma	0
