@@ -17,7 +17,7 @@ setwd("./") # change to github working directory
 ### download Sample Annotations: GTEx_Analysis_v8_Annotations_SampleAttributesDS.txt
 
 # load Treehouse/GTEx merged tpm df
-tree.gtex.tpm <- read.delim("data/Treehouse-GTEx-CD276-tpm.txt",header = T,sep = "\t")
+tree.gtex.tpm <- read.delim("data/RNA_data/Treehouse-GTEx-CD276-tpm.txt",header = T,sep = "\t")
 # set order of Histologies/Tissues in plot
 tree.gtex.tpm$Histology <- factor(tree.gtex.tpm$Histology, levels = c("Ewing sarcoma","Rhabdoid tumor","RMS","Embryonal RMS","Alveolar RMS","Hepatoblastoma",
                                                                       "Meningioma","Neuroblastoma","Osteosarcoma","Wilms tumor",
@@ -54,7 +54,7 @@ fig1a
 ### Analysis: 
 
 # load PPTC tpm df
-pptc.tpm <- read.delim("data/PPTC-CD276-tpm.txt",header = T,sep = "\t")
+pptc.tpm <- read.delim("data/RNA_data/PPTC-CD276-tpm.txt",header = T,sep = "\t")
 
 # load Histology Colors
 histo.colors <- read.delim("data/Histology-Colors.txt",header=T,sep = "\t")
@@ -81,7 +81,7 @@ fig1b
 #### figure 2a ####
 
 # load H-Score values from NBL TMA
-nbl.ihc <- read.delim("data/PPTC-NBL-CD276-IHC.txt",header = T,sep = "\t")
+nbl.ihc <- read.delim("data/IHC_data/IHC-NBL-CD276.txt",header = T,sep = "\t")
 
 # set NBL order from low to high
 nbl.order <- nbl.ihc %>%
@@ -114,7 +114,7 @@ fig2a
 #### figure 2b ####
 
 # load H-Score values from NBL TMA
-os.ihc <- read.delim("data/PPTC-OS-CD276-IHC.txt",header = T,sep = "\t")
+os.ihc <- read.delim("data/IHC_data/IHC-OS-CD276.txt",header = T,sep = "\t")
 
 # set NBL order from low to high
 os.order <- os.ihc %>%
@@ -147,7 +147,7 @@ fig2b
 #### figure 2c ####
 
 # load H-Score values from NBL TMA
-mix.ihc <- read.delim("data/PPTC-MIXED-CD276-IHC.txt",header = T,sep = "\t")
+mix.ihc <- read.delim("data/IHC_data/IHC-MIXED-CD276.txt",header = T,sep = "\t")
 
 # set NBL order from low to high
 mix.order <- mix.ihc %>%
