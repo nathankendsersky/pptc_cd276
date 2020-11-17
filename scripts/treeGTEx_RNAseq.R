@@ -16,11 +16,6 @@
 # 2. Subset for CD276, clean Histology; treeGTEx_RNAseq.R
 # 3. Visualize in main_pptc_cd276.R
 
-#### prepare DGEList, filter, TMM-normalize ####
-
-# source("./scripts/treeGTEx_RNAseq_qsub.R")
-## this requires >64GB of RAM of load / analyze these datasets
-
 #### load packages and functions ####
 
 cat(paste0(Sys.time(),": Loading R packages..."),file=logFile1,append=T,sep="\n")
@@ -48,54 +43,61 @@ matrix.please<-function(x) {
   rownames(m)<-x[,1]
   m
 }
+#### prepare DGEList, filter, TMM-normalize ####
 
-cat(paste0(Sys.time(),":   Successfully loaded R packages."),file=logFile1,append=T,sep="\n")
+# source("./scripts/treeGTEx_RNAseq_qsub.R")
+## this requires >64GB of RAM of load / analyze these datasets
 
 #### load data from qsub script ####
 
+dataset.dir <- "treehouse_data/"
+analysis.dir <- "solidtumor_analysis/"
+home <- "/Volumes/target_nbl_ngs/Kendsersky/crc-project/tumor_datasets/"
+checkpoints.out <- paste0(home,dataset.dir,analysis.dir,"checkpoints_out/")
+resources.dir <- "/Volumes/target_nbl_ngs/Kendsersky/crc-project/resources/"
+dataset <- gsub("_data/","",dataset.dir)
+tumor <- "multi-tumor"
+
 # load RNAseq data (log2TPM tmm normalized and filtered)
 load(file=paste0(checkpoints.out,"myDGEList.filtered.norm.RData"))
-cpm.filtered.norm <- cpm(myDGEList.filtered.norm, log=F)
-cpm.filtered.norm.df <- as_tibble(cpm.filtered.norm, rownames = "geneID")
-rm(cpm.filtered.norm)
+tree.gtex.cpm.filtered.norm <- cpm(myDGEList.filtered.norm, log=F)
+tree.gtex.cpm.filtered.norm.df <- as_tibble(tree.gtex.cpm.filtered.norm, rownames = "GENEID")
 
-# load annotation data
-if (dataset == "treehouse") {
-  tumor.annot <- read_tsv("/Volumes/target_nbl_ngs/Kendsersky/TumorCompendium_v11_PublicPolyA/clinical_TumorCompendium_v11_PolyA_2020-04-09.tsv")
-  ped.tumors <- c("Ewing sarcoma","rhabdoid tumor","rhabdomyosarcoma","alveolar rhabdomyosarcoma","embryonal rhabdomyosarcoma",
-                  "hepatoblastoma","neuroblastoma","meningioma","osteosarcoma","wilms tumor")
-  tumor.annot.sub <- tumor.annot[tumor.annot$disease %in% ped.tumors,]
-  tumor.annot.sub.slim <- tumor.annot.sub[,c("th_sampleid","disease")]
-  colnames(tumor.annot.sub.slim) <- c("SAMPID","Histology")
-  
-}
+# load annotation data, treehouse
+tumor.annot <- read_tsv("/Volumes/target_nbl_ngs/Kendsersky/TumorCompendium_v11_PublicPolyA/clinical_TumorCompendium_v11_PolyA_2020-04-09.tsv")
+ped.tumors <- c("Ewing sarcoma","rhabdoid tumor","rhabdomyosarcoma","alveolar rhabdomyosarcoma","embryonal rhabdomyosarcoma",
+                "hepatoblastoma","neuroblastoma","meningioma","osteosarcoma","wilms tumor")
+tumor.annot.sub <- tumor.annot[tumor.annot$disease %in% ped.tumors,]
+tumor.annot.sub.slim <- tumor.annot.sub[,c("th_sampleid","disease")]
+colnames(tumor.annot.sub.slim) <- c("SAMPID","Histology")
 
+# load annotation data, gtex
 gtex.annot <- read_tsv("/Volumes/target_nbl_ngs/Kendsersky/GTEx_Analysis_2017-06-05_v8/GTEx_Analysis_v8_Annotations_SampleAttributesDS.txt")
 gtex.annot.slim <- gtex.annot[,c("SAMPID","SMTS")]
 colnames(gtex.annot.slim) <- c("SAMPID","Histology")
 tumor.gtex.annot <- rbind(tumor.annot.sub.slim,gtex.annot.slim)
 
 # add gene symbols to these matrices
-colnames(cpm.filtered.norm.df)[1] <- "ID"
-geneIDs <- ensembldb::select(EnsDb.Hsapiens.v86, keys=as.character(cpm.filtered.norm.df$ID), keytype = "GENEID", columns = c("SYMBOL","GENEID"))
-geneIDs <- geneIDs %>% dplyr::rename(ID = GENEID)
+gene.convert <- ensembldb::select(EnsDb.Hsapiens.v86, keys=as.character(tree.gtex.cpm.filtered.norm.df$GENEID), 
+                                  keytype = "GENEID", columns = c("SYMBOL","GENEID"))
 
-cpm.filtered.norm.symbol.df <- merge(cpm.filtered.norm.df,geneIDs,by="ID")
-cpm.filtered.norm.symbol.df <- as_tibble(cpm.filtered.norm.symbol.df[,c(ncol(cpm.filtered.norm.symbol.df),2:(ncol(cpm.filtered.norm.symbol.df)-1))])
+tree.gtex.cpm.symbol.df <- merge(tree.gtex.cpm.filtered.norm.df,gene.convert,by="GENEID")
+tree.gtex.cpm.symbol.df <- as_tibble(tree.gtex.cpm.symbol.df[,c(ncol(tree.gtex.cpm.symbol.df),2:(ncol(tree.gtex.cpm.symbol.df)-1))])
 
 #### filter and clean dataframe ####
 
-tree.gtex.cd276 <- cpm.filtered.norm.symbol.df %>%
-  dplyr::filter(SYMBOL=="CD276")
-tree.gtex.names <- as.vector(colnames(tree.gtex.cd276[2:length(tree.gtex.cd276)]))
-tree.gtex.cd276 <- pivot_longer(tree.gtex.cd276,
-                                    cols = as.name(tree.gtex.names[1]):as.name(tree.gtex.names[length(tree.gtex.names)]),
-                                    names_to = "SAMPID",
-                                    values_to = "CD276_tpm") 
+first.samp <- as.name(colnames(tree.gtex.cpm.symbol.df[2]))
+last.samp <- as.name(colnames(tree.gtex.cpm.symbol.df[ncol(tree.gtex.cpm.symbol.df)]))
 
-tree.gtex.cd276 <- tree.gtex.cd276 %>%
-  dplyr::select(SAMPID,CD276_tpm)
+tree.gtex.cd276 <- tree.gtex.cpm.symbol.df %>%
+  dplyr::filter(SYMBOL=="CD276") %>%
+  pivot_longer(cols = first.samp:last.samp,
+               names_to = "SAMPID",
+               values_to = "TPM") %>%
+  dplyr::select(SAMPID,TPM) %>%
+  dplyr::rename(CD276_tpm=TPM)
 
+# merge annotations
 tree.gtex.cd276 <- merge(tree.gtex.cd276,tumor.gtex.annot,by="SAMPID")
 
 # clean histology names 
@@ -109,4 +111,5 @@ tree.gtex.cd276$Histology <- gsub("meningioma","Meningioma",tree.gtex.cd276$Hist
 tree.gtex.cd276$Histology <- gsub("osteosarcoma","Osteosarcoma",tree.gtex.cd276$Histology)
 tree.gtex.cd276$Histology <- gsub("wilms tumor","Wilms tumor",tree.gtex.cd276$Histology)
 
-
+# save table
+write.table(tree.gtex.cd276,"./data/RNA_data/Treehouse-GTEx-CD276-tpm.txt",sep = "\t", col.names = T, row.names = F, quote = F)
