@@ -78,37 +78,36 @@ Txi_gene <- tximport(path,
                      txOut = FALSE, #determines whether your data represented at transcript or gene level
                      countsFromAbundance = "lengthScaledTPM",
                      ignoreTxVersion = TRUE)
+beep(2)
 
 #### prepare dgelist, filter, TMM-normalized ####
 
 pptc.names <- as.vector(pptc.annot$SAMPID)
-myDGEList <- DGEList(Txi_gene$counts)
+pptc.myDGEList <- DGEList(Txi_gene$counts)
 
 # use cpm to filter
-cpm <- cpm(myDGEList)
-min.histo <- min(table(pptc.annot$Histology)) # one Hepatoblastoma sample
-keepers <- rowSums(cpm>1)>=min.histo
-myDGEList.filtered <- myDGEList[keepers,]
+pptc.cpm <- cpm(pptc.myDGEList)
+pptc.min.histo <- min(table(pptc.annot$Histology)) # one Hepatoblastoma sample
+pptc.keepers <- rowSums(pptc.cpm>1)>=pptc.min.histo
+pptc.myDGEList.filtered <- pptc.myDGEList[pptc.keepers,]
 
 # normalize with TMM
-myDGEList.filtered.norm <- calcNormFactors(myDGEList.filtered, method = "TMM")
-cpm.filtered.norm <- cpm(myDGEList.filtered.norm, log=FALSE)
-cpm.filtered.norm.df <- tibble::rownames_to_column(data.frame(cpm.filtered.norm),"geneID")
-colnames(cpm.filtered.norm.df) <- c("geneID", pptc.names)
-
-cpm.filtered.norm.df.pivot <- pivot_longer(cpm.filtered.norm.df,
-                                                cols = as.name(pptc.names[1]):as.name(pptc.names[length(pptc.names)]),
-                                                names_to = "SAMPID",
-                                                values_to = "CD276_tpm") 
-
-# save(cpm.filtered.norm.df.pivot, file = "./data/PPTC-filt-norm-tpm-df.Rdata")
+pptc.myDGEList.filtered.norm <- calcNormFactors(pptc.myDGEList.filtered, method = "TMM")
+pptc.cpm.filtered.norm <- cpm(pptc.myDGEList.filtered.norm, log=FALSE)
+pptc.cpm.filtered.norm.df <- tibble::rownames_to_column(data.frame(pptc.cpm.filtered.norm),"SYMBOL")
+colnames(pptc.cpm.filtered.norm.df) <- c("SYMBOL", pptc.names)
 
 #### subset for CD276, merge with pptc.annot ####
 
-# load(file="./data/PPTC-filt-norm-tpm-df.Rdata")
+cpm.filtered.norm.df.pivot <- pivot_longer(pptc.cpm.filtered.norm.df,
+                                           cols = as.name(pptc.names[1]):as.name(pptc.names[length(pptc.names)]),
+                                           names_to = "SAMPID",
+                                           values_to = "TPM")
+
 pptc.cd276 <- cpm.filtered.norm.df.pivot %>%
-  dplyr::filter(geneID=="CD276") %>% 
-  dplyr::select(SAMPID,CD276_tpm)
+  dplyr::filter(SYMBOL=="CD276") %>% 
+  dplyr::select(SAMPID,TPM) %>%
+  dplyr::rename(CD276_tpm=TPM)
 
 pptc.cd276 <- merge(pptc.cd276,pptc.annot[,1:2],by="SAMPID")
 
@@ -117,4 +116,4 @@ in.study <- scan(file="./data/Models-in-Study.txt",what=character())
 pptc.cd276$InStudy <- ifelse(pptc.cd276$SAMPID %in% in.study,"In Study","Not In Study")
 
 # save table
-write.table(pptc.cd276,"./data/PPTC-CD276-tpm.txt",sep = "\t", col.names = T, row.names = F, quote = F)
+write.table(pptc.cd276,"./data/RNA_data/PPTC-CD276-tpm.txt",sep = "\t", col.names = T, row.names = F, quote = F)
