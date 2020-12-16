@@ -1,0 +1,48 @@
+SAMPID	Histology	minRTV
+CPRIT-1957	Hepatoblastoma	0
+CPRIT-1960	Wilms tumor	0
+CPRIT-0522-000	Osteosarcoma	0
+JR-1	Embryonal RMS	0
+KT-16	Extracranial Rhabdoid	0.333
+NCH-S13-5042	Meningioma	1.272
+NCH-S13-7484	Alveolar RMS	0
+S-12-6321	PXA	0
+SJR-HBO11-X	Embryonal RMS	1.299
+SJR-HBO13758-X2	Embryonal RMS	1.942
+SMSCTR	Embryonal RMS	0.177
+BT-29	ATRT	0
+BT-35	ATRT	0
+BT-39	ATRT	0
+BT-40	ATRT	0
+BT-50	ATRT	0
+KT-12	Extracranial Rhabdoid	0
+CHLA-258	Ewing sarcoma	0
+ES-1	Ewing sarcoma	0.165
+ES-2	Ewing sarcoma	0
+ES-3	Ewing sarcoma	0
+ES-4	Ewing sarcoma	0
+ES-6	Ewing sarcoma	0.179
+ES-7	Ewing sarcoma	0
+EW-5	Ewing sarcoma	2.862
+EW-8	Ewing sarcoma	0
+NCH-EW-5-1	Ewing sarcoma	0
+SK-NEP-1	Ewing sarcoma	0
+TC-71	Ewing sarcoma	0.114
+KT-14	Extracranial Rhabdoid	0
+RBD-1	Extracranial Rhabdoid	0
+RBD-2	Extracranial Rhabdoid	0
+IRS-56	Embryonal RMS	0
+NB-1382	Neuroblastoma	0
+NB-1643	Neuroblastoma	0
+OS-1	Osteosarcoma	0
+Rh-18	Embryonal RMS	0
+Rh-28	Alveolar RMS	0
+Rh-30	Alveolar RMS	0
+Rh-30R	Alveolar RMS	0
+Rh-36	Embryonal RMS	0
+Rh-65	Alveolar RMS	0
+Rh-66	Alveolar RMS	0
+KT-10	Wilms tumor	0
+KT-11	Wilms tumor	0
+KT-13	Wilms tumor	0
+KT-5	Wilms tumor	0
