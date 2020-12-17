@@ -214,7 +214,11 @@ rtv.order <- rtv %>%
   unique()
 rtv$SAMPID <- factor(rtv$SAMPID,levels = rtv.order)
 
-length(unique(rtv$SAMPID))
+# prepare factors
+rtv$Histology <- factor(rtv$Histology, levels = c("ATRT", "Ewing sarcoma", "Extracranial Rhabdoid","Embryonal RMS",
+                                                  "Alveolar RMS", "Hepatoblastoma","Neuroblastoma","Osteosarcoma","PXA","Wilms tumor"))
+rtv$Histology.Short <- factor(rtv$Histology.Short, levels = c("ATRT", "EWS", "Rhabdoid","ERMS",
+                                                                      "ARMS", "Hepatoblastoma","Neuroblastoma","Osteosarcoma","PXA","WT"))
 
 # load Histology Colors
 histo.colors <- read.delim("data/Histology-Colors.txt",header=T,sep = "\t")
@@ -230,24 +234,21 @@ fig3a <- ggplot(rtv, aes(x=SAMPID, y=percent_minRTV, fill=Histology)) +
   stat_summary(fun = median, geom="bar",color="black") + 
   scale_fill_manual(values = histo.colors.plot3a) + 
   geom_point() +
-  facet_grid(cols = vars(rtv$Histology), scales = "free", space = "free") +
+  facet_grid(cols = vars(rtv$Histology.Short), scales = "free", space = "free") +
   ylab("% Change in Minimum Relative Tumor Volume (RTV)") + xlab("Tumor Model") +
   theme(axis.text.x = element_text(size = 6, angle = 45, hjust = 1,colour = "black"),
         axis.title.y = element_text(size=6),axis.title.x=element_text(size=8),
         axis.text.y = element_text(size = 6,colour = "black"),
         legend.title = element_text(size=6), legend.text = element_text(size=6),
-        legend.position = c(0.6, 0.75),panel.grid.minor = element_blank(),panel.grid.major = element_blank())
+        legend.position = "none",panel.grid.minor = element_blank(),panel.grid.major = element_blank())
 fig3a
 
 #### figure 3b ####
 
 # load N=1 relative tumor volume
-smt.rtv <- read.delim("~/Desktop/PPTC-SMT-RTV.txt",header = T,sep = "\t")
+smt.rtv <- read.delim("data/PPTC-SMT-RTV.txt",header = T,sep = "\t")
 # calculate % change in minRTV
 smt.rtv$percent_minRTV <- round((smt.rtv$minRTV*100)-100,digits = 2)
-
-smt.rtv$Histology <- factor(smt.rtv$Histology, levels = c("ATRT","Ewing sarcoma","Extracranial Rhabdoid","Embryonal RMS","Alveolar RMS","Hepatoblastoma",
-                                                          "Meningioma","Neuroblastoma","Osteosarcoma","PXA","Wilms tumor"))
 
 # set order high to low
 smt.rtv.order <- smt.rtv %>%
@@ -257,7 +258,10 @@ smt.rtv.order <- smt.rtv %>%
   unique()
 smt.rtv$SAMPID <- factor(smt.rtv$SAMPID,levels = smt.rtv.order)
 
-length(unique(smt.rtv$SAMPID))
+smt.rtv$Histology <- factor(smt.rtv$Histology, levels = c("ATRT","Ewing sarcoma","Extracranial Rhabdoid","Embryonal RMS","Alveolar RMS","Hepatoblastoma",
+                                                          "Meningioma","Neuroblastoma","Osteosarcoma","PXA","Wilms tumor"))
+smt.rtv$Histology.Short <- factor(smt.rtv$Histology.Short, levels = c("ATRT","Ewing sarcoma","Rhabdoid","Embryonal RMS","Alveolar RMS","HB",
+                                                                      "MT","NBL","OS","PXA","Wilms tumor"))
 
 # load Histology Colors
 histo.colors <- read.delim("data/Histology-Colors.txt",header=T,sep = "\t")
@@ -273,36 +277,31 @@ fig3b <- ggplot(smt.rtv, aes(x=SAMPID, y=percent_minRTV, fill=Histology)) +
   stat_summary(fun = median, geom="bar",color="black") + 
   scale_fill_manual(values = histo.colors.plot3b) + 
   geom_point() +
-  facet_grid(cols = vars(smt.rtv$Histology), scales = "free", space = "free") +
+  facet_grid(cols = vars(smt.rtv$Histology.Short), scales = "free", space = "free") +
   ylab("% Change in Minimum Relative Tumor Volume (RTV)") + xlab("Tumor Model") +
   theme(axis.text.x = element_text(size = 6, angle = 45, hjust = 1,colour = "black"),
         axis.title.y = element_text(size=6),axis.title.x=element_text(size=8),
         axis.text.y = element_text(size = 6,colour = "black"),
         legend.title = element_text(size=6), legend.text = element_text(size=6),
-        legend.position = c(0.6, 0.75),panel.grid.minor = element_blank(),panel.grid.major = element_blank())
+        legend.position = "none",panel.grid.minor = element_blank(),panel.grid.major = element_blank())
 fig3b
-
-
-
-
-
 
 
 #### supplemental figure 1 ####
 
 # summarize IHC data
 nbl.ihc.slim <- nbl.ihc %>%
-  group_by(SAMPFACTOR) %>%
+  group_by(SAMPFACTOR,Histology) %>%
   summarise(medianHScore=median(H.Score)) %>%
   dplyr::rename(SAMPID=SAMPFACTOR)
 
 mix.ihc.slim <- mix.ihc %>%
-  group_by(SAMPFACTOR) %>%
+  group_by(SAMPFACTOR,Histology) %>%
   summarise(medianHScore=median(H.Score)) %>%
   dplyr::rename(SAMPID=SAMPFACTOR)
 
 os.ihc.slim <- os.ihc %>%
-  group_by(SAMPFACTOR) %>%
+  group_by(SAMPFACTOR,Histology) %>%
   summarise(medianHScore=median(H.Score)) %>%
   dplyr::rename(SAMPID=SAMPFACTOR)
 
@@ -312,33 +311,97 @@ ihc.allsamp <- rbind(nbl.ihc.slim,rbind(mix.ihc.slim,os.ihc.slim))
 # select cols in tpm df, then merge
 pptc.tpm.slim <- pptc.tpm %>%
   dplyr::select(SAMPID,CD276_tpm,Histology)
-ihc.tma.final <- merge(pptc.tpm.slim, ihc.allsamp, by="SAMPID")
+ihc.tma.final <- merge(pptc.tpm.slim, ihc.allsamp, by=c("SAMPID","Histology"))
 
 # perform correlation between RNA (tpm) and protein (H Score)
 rna.pro.cor <- cor.test(ihc.tma.final$medianHScore, ihc.tma.final$CD276_tpm, method="pearson")
 
 histo.colors <- read.delim("data/Histology-Colors.txt",header=T,sep = "\t")
 # extract histology colors for Histologys/Tissues in plot
-histo.colors.plotsup1 <- histo.colors %>%
+histo.colors.sfig1 <- histo.colors %>%
   dplyr::filter(Histology %in% ihc.tma.final$Histology) %>%
   dplyr::pull(Color) %>%
   as.character()
 
-ggplot(ihc.tma.final, aes(x = medianHScore, y = CD276_tpm)) +
+sfig1 <- ggplot(ihc.tma.final, aes(x = medianHScore, y = CD276_tpm)) +
   geom_point(size=3,aes(color=factor(Histology))) +
   geom_smooth(method=lm,se=TRUE,color="black") +
-  scale_color_manual(values=histo.colors.plotsup1) + 
-  xlab("Median H-Score") + ylab("CD276 mRNA (Transcripts per Million, tpm)") +
+  scale_color_manual(values=histo.colors.sfig1) + 
+  xlab("CD276 Protein (Median H-Score)") + ylab("CD276 mRNA (Transcripts per Million, tpm)") +
   labs(title = "Correlation between CD276 mRNA and Protein",
        subtitle = paste0("Pearson Correlation: ",round(rna.pro.cor$estimate,3),
                          "\nP value: ", rna.pro.cor$p.value),
        color = "Histology") +
   theme_bw() + 
-  theme(axis.text.x = element_text(size = 10,color="black"),
-        axis.title.y = element_text(size=10,color="black"),
-        axis.text.y = element_text(size = 10,colour = "black"),
-        legend.position = "bottom")
+  theme(axis.text.x = element_text(size = 8,color="black"),
+        axis.title.y = element_text(size=8,color="black"),
+        axis.text.y = element_text(size = 8,colour = "black"),
+        legend.position = "bottom",legend.text = element_text(size = 8,colour = "black"))
+sfig1
 
+#### supplemental figure for overall response - RNA ####
+
+obj.resp <- read_tsv("data/Objective-Responses.txt")
+obj.resp$Objective_Response <- factor(obj.resp$Objective_Response,levels=c("PD1","SD","PR","CR","MCR"))
+
+# merge with pptc.tpm
+pptc.tpm.resp <- merge(pptc.tpm,obj.resp,by="SAMPID")
+
+# load Histology Colors
+histo.colors <- read.delim("data/Histology-Colors.txt",header=T,sep = "\t")
+
+# extract histology colors for Histologys/Tissues in plot
+histo.colors.sfig.resp.a <- histo.colors %>%
+  dplyr::filter(Histology %in% pptc.tpm.resp$Histology) %>%
+  dplyr::pull(Color) %>%
+  as.character()
+
+pptc.tpm.resp$Histology <- factor(pptc.tpm.resp$Histology, levels = c("ATRT","Ewing sarcoma","Extracranial Rhabdoid","Embryonal RMS","Alveolar RMS","Hepatoblastoma",
+                                                          "Meningioma","Neuroblastoma","Osteosarcoma","PXA","Wilms tumor"))
+
+sfig.resp.a <- ggplot(pptc.tpm.resp, aes(x=Objective_Response,y=CD276_tpm,color=Histology)) + 
+  geom_boxplot(color="black",alpha=.9,outlier.shape = NA) + 
+  theme_bw() + 
+  scale_color_manual(values = histo.colors.sfig.resp.a) +
+  geom_jitter(shape=16, position=position_jitter(0.2),size=2) + 
+  #scale_color_manual(values = c("red",adjustcolor("black",alpha.f=0.5))) +
+  theme(axis.text.x = element_text(size = 8, angle = 45, hjust = 1,colour = "black"),
+        axis.title.y = element_text(size=8),axis.title.x=element_text(size = 8,colour = "black"), 
+        axis.text.y = element_text(size = 8,colour = "black"),
+        legend.position = "none") + 
+  ylab("CD276 Transcripts per Million (TPM)") + xlab("Objective Response Category")
+sfig.resp.a
+
+#### supplemental figure for overall response - protein ####
+
+# merge with ihc.allsamp
+ihc.allsamp.resp <- merge(ihc.allsamp,obj.resp,by="SAMPID")
+
+# load Histology Colors
+histo.colors <- read.delim("data/Histology-Colors.txt",header=T,sep = "\t")
+
+# extract histology colors for Histologys/Tissues in plot
+histo.colors.sfig.resp.b <- histo.colors %>%
+  dplyr::filter(Histology %in% ihc.allsamp.resp$Histology) %>%
+  dplyr::pull(Color) %>%
+  as.character()
+
+ihc.allsamp.resp$Histology <- factor(ihc.allsamp.resp$Histology, levels = c("ATRT","Ewing sarcoma","Extracranial Rhabdoid","Embryonal RMS","Alveolar RMS","Hepatoblastoma",
+                                                                      "Meningioma","Neuroblastoma","Osteosarcoma","PXA","Wilms tumor"))
+
+sfig.resp.b <- ggplot(ihc.allsamp.resp, aes(x=Objective_Response,y=medianHScore,color=Histology)) + 
+  geom_boxplot(color="black",alpha=.9,outlier.shape = NA) + 
+  theme_bw() + 
+  scale_color_manual(values = histo.colors.sfig.resp.b) +
+  geom_jitter(shape=16, position=position_jitter(0.2),size=2) + 
+  #scale_color_manual(values = c("red",adjustcolor("black",alpha.f=0.5))) +
+  theme(axis.text.x = element_text(size = 8, angle = 45, hjust = 1,colour = "black"),
+        axis.title.y = element_text(size=8),axis.title.x=element_text(size = 8,colour = "black"), 
+        axis.text.y = element_text(size = 8,colour = "black")) + 
+  ylab("CD276 Protein Expression (Median H Score)") + xlab("Objective Response Category")
+sfig.resp.b
+
+#### stop ####
 #### save figures as PDFs ####
 
 pdf("figures/pptc_cd276_Figure1.pdf",width = 8.5,height = 4)
@@ -350,11 +413,22 @@ ggdraw() +
   draw_plot(fig2c, 0,.67,1,.33) +
   draw_plot(fig2a,0,.25,1,.42) +
   draw_plot(fig2b, 0,0,.5,.25) +
-  draw_plot_label(c("A","B","C"), c(0, 0, 0), c(0, 0.67, 0.25), size = 12)
+  draw_plot_label(c("A","B","C"), c(0, 0, 0), c(1, 0.67, 0.25), size = 12)
 dev.off()
 
-pdf("figures/pptc_cd276_Figure3.pdf",width = 5,height = 5)
-plot_grid(fig3a, labels=c("A"), align = 'h', nrow = 1, rel_widths = c(1), label_size=12)
+pdf("figures/pptc_cd276_Figure3.pdf",width = 11,height = 8.5)
+ggdraw() +
+  draw_plot(fig3b, 0,.5,1,.5) +
+  draw_plot(fig3a,0,0,.6,.5) +
+  draw_plot_label(c("A","B"), c(0, 0), c(1, .5), size = 12)
+dev.off()
+
+pdf("figures/pptc_cd276_SFig1.pdf",width = 6,height = 6)
+sfig1
+dev.off()
+
+pdf("figures/pptc_cd276_SFig9.pdf",width = 8,height = 5)
+plot_grid(sfig.resp.a,sfig.resp.b, labels=c("A","B"), align = 'h', nrow = 1, rel_widths = c(.65,1), label_size=12)
 dev.off()
 
 
