@@ -83,10 +83,10 @@ KT-10	1	6	14152	156.4014	KT-10 p40	Wilms tumor	In_Study	Wilms tumor
 KT-10	1	7	14153	149.05	KT-10 p40	Wilms tumor	In_Study	Wilms tumor
 KT-10	1	8	14154	68.404	KT-10 p44	Wilms tumor	In_Study	Wilms tumor
 KT-10	1	9	14155	101.63	KT-10 p44	Wilms tumor	In_Study	Wilms tumor
-G401	3	13	14193	191.3587	G401 p10/4	Extracranial Rhabdoid	In_Study	Extracranial Rhabdoid
-G401	3	10	14190	59.9228	G401 p10/3	Extracranial Rhabdoid	In_Study	Extracranial Rhabdoid
-G401	3	11	14191	90.268	G401 p10/3	Extracranial Rhabdoid	In_Study	Extracranial Rhabdoid
-G401	3	12	14192	142.5977	G401 p10/4	Extracranial Rhabdoid	In_Study	Extracranial Rhabdoid
+G401	3	13	14193	191.3587	G401 p10/4	Extracranial Rhabdoid	In_Study	Rhabdoid
+G401	3	10	14190	59.9228	G401 p10/3	Extracranial Rhabdoid	In_Study	Rhabdoid
+G401	3	11	14191	90.268	G401 p10/3	Extracranial Rhabdoid	In_Study	Rhabdoid
+G401	3	12	14192	142.5977	G401 p10/4	Extracranial Rhabdoid	In_Study	Rhabdoid
 Rh-28	7	13	14261	138.22	RH28 p26	Alveolar RMS	Not_In_Study	ARMS
 Rh-28	7	10	14258	127.84818	RH28 p21	Alveolar RMS	Not_In_Study	ARMS
 Rh-28	7	11	14259	121.99	RH28 p21	Alveolar RMS	Not_In_Study	ARMS
