@@ -214,6 +214,7 @@ rtv.order <- rtv %>%
   unique()
 rtv$SAMPID <- factor(rtv$SAMPID,levels = rtv.order)
 
+length(unique(rtv$SAMPID))
 
 # load Histology Colors
 histo.colors <- read.delim("data/Histology-Colors.txt",header=T,sep = "\t")
@@ -237,6 +238,106 @@ fig3a <- ggplot(rtv, aes(x=SAMPID, y=percent_minRTV, fill=Histology)) +
         legend.title = element_text(size=6), legend.text = element_text(size=6),
         legend.position = c(0.6, 0.75),panel.grid.minor = element_blank(),panel.grid.major = element_blank())
 fig3a
+
+#### figure 3b ####
+
+# load N=1 relative tumor volume
+smt.rtv <- read.delim("~/Desktop/PPTC-SMT-RTV.txt",header = T,sep = "\t")
+# calculate % change in minRTV
+smt.rtv$percent_minRTV <- round((smt.rtv$minRTV*100)-100,digits = 2)
+
+smt.rtv$Histology <- factor(smt.rtv$Histology, levels = c("ATRT","Ewing sarcoma","Extracranial Rhabdoid","Embryonal RMS","Alveolar RMS","Hepatoblastoma",
+                                                          "Meningioma","Neuroblastoma","Osteosarcoma","PXA","Wilms tumor"))
+
+# set order high to low
+smt.rtv.order <- smt.rtv %>%
+  group_by(SAMPID, Histology) %>%
+  arrange(desc(percent_minRTV),Histology) %>%
+  pull(SAMPID) %>%
+  unique()
+smt.rtv$SAMPID <- factor(smt.rtv$SAMPID,levels = smt.rtv.order)
+
+length(unique(smt.rtv$SAMPID))
+
+# load Histology Colors
+histo.colors <- read.delim("data/Histology-Colors.txt",header=T,sep = "\t")
+# extract histology colors for Histologys/Tissues in plot
+histo.colors.plot3b <- histo.colors %>%
+  dplyr::filter(Histology %in% smt.rtv$Histology) %>%
+  dplyr::pull(Color) %>%
+  as.character()
+
+
+fig3b <- ggplot(smt.rtv, aes(x=SAMPID, y=percent_minRTV, fill=Histology)) + 
+  theme_bw() +   
+  stat_summary(fun = median, geom="bar",color="black") + 
+  scale_fill_manual(values = histo.colors.plot3b) + 
+  geom_point() +
+  facet_grid(cols = vars(smt.rtv$Histology), scales = "free", space = "free") +
+  ylab("% Change in Minimum Relative Tumor Volume (RTV)") + xlab("Tumor Model") +
+  theme(axis.text.x = element_text(size = 6, angle = 45, hjust = 1,colour = "black"),
+        axis.title.y = element_text(size=6),axis.title.x=element_text(size=8),
+        axis.text.y = element_text(size = 6,colour = "black"),
+        legend.title = element_text(size=6), legend.text = element_text(size=6),
+        legend.position = c(0.6, 0.75),panel.grid.minor = element_blank(),panel.grid.major = element_blank())
+fig3b
+
+
+
+
+
+
+
+#### supplemental figure 1 ####
+
+# summarize IHC data
+nbl.ihc.slim <- nbl.ihc %>%
+  group_by(SAMPFACTOR) %>%
+  summarise(medianHScore=median(H.Score)) %>%
+  dplyr::rename(SAMPID=SAMPFACTOR)
+
+mix.ihc.slim <- mix.ihc %>%
+  group_by(SAMPFACTOR) %>%
+  summarise(medianHScore=median(H.Score)) %>%
+  dplyr::rename(SAMPID=SAMPFACTOR)
+
+os.ihc.slim <- os.ihc %>%
+  group_by(SAMPFACTOR) %>%
+  summarise(medianHScore=median(H.Score)) %>%
+  dplyr::rename(SAMPID=SAMPFACTOR)
+
+# row bind IHC data
+ihc.allsamp <- rbind(nbl.ihc.slim,rbind(mix.ihc.slim,os.ihc.slim))
+
+# select cols in tpm df, then merge
+pptc.tpm.slim <- pptc.tpm %>%
+  dplyr::select(SAMPID,CD276_tpm,Histology)
+ihc.tma.final <- merge(pptc.tpm.slim, ihc.allsamp, by="SAMPID")
+
+# perform correlation between RNA (tpm) and protein (H Score)
+rna.pro.cor <- cor.test(ihc.tma.final$medianHScore, ihc.tma.final$CD276_tpm, method="pearson")
+
+histo.colors <- read.delim("data/Histology-Colors.txt",header=T,sep = "\t")
+# extract histology colors for Histologys/Tissues in plot
+histo.colors.plotsup1 <- histo.colors %>%
+  dplyr::filter(Histology %in% ihc.tma.final$Histology) %>%
+  dplyr::pull(Color) %>%
+  as.character()
+
+ggplot(ihc.tma.final, aes(x = medianHScore, y = CD276_tpm)) +
+  geom_point(size=3,aes(color=factor(Histology))) +
+  geom_smooth(method=lm,se=TRUE,color="black") +
+  scale_color_manual(values=histo.colors.plotsup1) + 
+  xlab("Median H-Score") + ylab("CD276 mRNA (Transcripts per Million, tpm)") +
+  labs(title = "Correlation between CD276 mRNA and Protein",
+       subtitle = paste0("Pearson Correlation: ",round(rna.pro.cor$estimate,3),
+                         "\nP value: ", rna.pro.cor$p.value),
+       color = "Histology") +
+  theme_bw() + 
+  theme(axis.text.x = element_text(size = 10,color="black"),
+        axis.title.y = element_text(size=10,color="black"),
+        axis.text.y = element_text(size = 10,colour = "black"),
+        legend.position = "bottom")
 
 #### save figures as PDFs ####
 
