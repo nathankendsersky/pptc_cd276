@@ -1,48 +1,48 @@
-SAMPID	Histology	minRTV
-CPRIT-1957	Hepatoblastoma	0
-CPRIT-1960	Wilms tumor	0
-CPRIT-0522-000	Osteosarcoma	0
-JR-1	Embryonal RMS	0
-KT-16	Extracranial Rhabdoid	0.333
-NCH-S13-5042	Meningioma	1.272
-NCH-S13-7484	Alveolar RMS	0
-S-12-6321	PXA	0
-SJR-HBO11-X	Embryonal RMS	1.299
-SJR-HBO13758-X2	Embryonal RMS	1.942
-SMSCTR	Embryonal RMS	0.177
-BT-29	ATRT	0
-BT-35	ATRT	0
-BT-39	ATRT	0
-BT-40	ATRT	0
-BT-50	ATRT	0
-KT-12	Extracranial Rhabdoid	0
-CHLA-258	Ewing sarcoma	0
-ES-1	Ewing sarcoma	0.165
-ES-2	Ewing sarcoma	0
-ES-3	Ewing sarcoma	0
-ES-4	Ewing sarcoma	0
-ES-6	Ewing sarcoma	0.179
-ES-7	Ewing sarcoma	0
-EW-5	Ewing sarcoma	2.862
-EW-8	Ewing sarcoma	0
-NCH-EW-5-1	Ewing sarcoma	0
-SK-NEP-1	Ewing sarcoma	0
-TC-71	Ewing sarcoma	0.114
-KT-14	Extracranial Rhabdoid	0
-RBD-1	Extracranial Rhabdoid	0
-RBD-2	Extracranial Rhabdoid	0
-IRS-56	Embryonal RMS	0
-NB-1382	Neuroblastoma	0
-NB-1643	Neuroblastoma	0
-OS-1	Osteosarcoma	0
-Rh-18	Embryonal RMS	0
-Rh-28	Alveolar RMS	0
-Rh-30	Alveolar RMS	0
-Rh-30R	Alveolar RMS	0
-Rh-36	Embryonal RMS	0
-Rh-65	Alveolar RMS	0
-Rh-66	Alveolar RMS	0
-KT-10	Wilms tumor	0
-KT-11	Wilms tumor	0
-KT-13	Wilms tumor	0
-KT-5	Wilms tumor	0
+SAMPID	Histology	minRTV	percent_minRTV	Histology.Short
+CPRIT-1957	Hepatoblastoma	0	-100	HB
+CPRIT-1960	Wilms tumor	0	-100	Wilms tumor
+CPRIT-0522-000	Osteosarcoma	0	-100	OS
+JR-1	Embryonal RMS	0	-100	Embryonal RMS
+KT-16	Extracranial Rhabdoid	0.333	-66.7	Rhabdoid
+NCH-S13-5042	Meningioma	1.272	27.2	MT
+NCH-S13-7484	Alveolar RMS	0	-100	Alveolar RMS
+S-12-6321	PXA	0	-100	PXA
+SJR-HBO11-X	Embryonal RMS	1.299	29.9	Embryonal RMS
+SJR-HBO13758-X2	Embryonal RMS	1.942	94.2	Embryonal RMS
+SMSCTR	Embryonal RMS	0.177	-82.3	Embryonal RMS
+BT-29	ATRT	0	-100	ATRT
+BT-35	ATRT	0	-100	ATRT
+BT-39	ATRT	0	-100	ATRT
+BT-40	ATRT	0	-100	ATRT
+BT-50	ATRT	0	-100	ATRT
+KT-12	Extracranial Rhabdoid	0	-100	Rhabdoid
+CHLA-258	Ewing sarcoma	0	-100	Ewing sarcoma
+ES-1	Ewing sarcoma	0.165	-83.5	Ewing sarcoma
+ES-2	Ewing sarcoma	0	-100	Ewing sarcoma
+ES-3	Ewing sarcoma	0	-100	Ewing sarcoma
+ES-4	Ewing sarcoma	0	-100	Ewing sarcoma
+ES-6	Ewing sarcoma	0.179	-82.1	Ewing sarcoma
+ES-7	Ewing sarcoma	0	-100	Ewing sarcoma
+EW-5	Ewing sarcoma	2.862	186.2	Ewing sarcoma
+EW-8	Ewing sarcoma	0	-100	Ewing sarcoma
+NCH-EWS-1	Ewing sarcoma	0	-100	Ewing sarcoma
+SK-NEP-1	Ewing sarcoma	0	-100	Ewing sarcoma
+TC-71	Ewing sarcoma	0.114	-88.6	Ewing sarcoma
+KT-14	Extracranial Rhabdoid	0	-100	Rhabdoid
+NCH-RBD-1	Extracranial Rhabdoid	0	-100	Rhabdoid
+NCH-RBD-2	Extracranial Rhabdoid	0	-100	Rhabdoid
+IRS-56	Embryonal RMS	0	-100	Embryonal RMS
+NB-1382	Neuroblastoma	0	-100	NBL
+NB-1643	Neuroblastoma	0	-100	NBL
+OS-1	Osteosarcoma	0	-100	OS
+Rh-18	Embryonal RMS	0	-100	Embryonal RMS
+Rh-28	Alveolar RMS	0	-100	Alveolar RMS
+Rh-30	Alveolar RMS	0	-100	Alveolar RMS
+Rh-30R	Alveolar RMS	0	-100	Alveolar RMS
+Rh-36	Embryonal RMS	0	-100	Embryonal RMS
+Rh-65	Alveolar RMS	0	-100	Alveolar RMS
+Rh-66	Alveolar RMS	0	-100	Alveolar RMS
+KT-10	Wilms tumor	0	-100	Wilms tumor
+KT-11	Wilms tumor	0	-100	Wilms tumor
+KT-13	Wilms tumor	0	-100	Wilms tumor
+KT-5	Wilms tumor	0	-100	Wilms tumor

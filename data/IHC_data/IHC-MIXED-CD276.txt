@@ -1,4 +1,4 @@
-SAMPFACTOR	Row	Col	Core ID	H-Score	SAMPID	Histology	InStudy	Histology.Short
+SAMPFACTOR	Row	Col	Core.ID	H.Score	SAMPID	Histology	InStudy	Histology.Short
 CHLA-258	5	17	14231	17.30292	CHLA-258 p64	Ewing sarcoma	In_Study	Ewing sarcoma
 CHLA-258	5	14	14228	3.276	CHLA-258 p53	Ewing sarcoma	In_Study	Ewing sarcoma
 CHLA-258	5	15	14229	12.22866	CHLA-258 p53	Ewing sarcoma	In_Study	Ewing sarcoma
@@ -31,30 +31,30 @@ ES-6	5	5	14219	97.97	ES-6 p40/26	Ewing sarcoma	In_Study	Ewing sarcoma
 ES-6	5	6	14220	54.296	ES-6 p40/26	Ewing sarcoma	In_Study	Ewing sarcoma
 ES-6	5	7	14221	21.31769	ES-6 p40/29	Ewing sarcoma	In_Study	Ewing sarcoma
 ES-6	5	8	14222	73.486	ES-6 p40/29	Ewing sarcoma	In_Study	Ewing sarcoma
-S-12-6321	9	1	14283	17.62306	S12-6321 p5	PXA	Not_In_Study	PXA
-S-12-6321	9	2	14284	121.64	S12-6321 p5	PXA	Not_In_Study	PXA
-S-12-6321	9	3	14285	54.384	S12-6321 p7	PXA	Not_In_Study	PXA
-S-12-6321	9	4	14286	107.55	S12-6321 p7	PXA	Not_In_Study	PXA
-ES-2	4	13	14210	129.52	ES-2 p14/17	Ewing sarcoma	Not_In_Study	Ewing sarcoma
-ES-2	4	10	14207	25.2692	ES-2 p14/16	Ewing sarcoma	Not_In_Study	Ewing sarcoma
-ES-2	4	11	14208	55.7036	ES-2 p14/16	Ewing sarcoma	Not_In_Study	Ewing sarcoma
-ES-2	4	12	14209	97.252	ES-2 p14/17	Ewing sarcoma	Not_In_Study	Ewing sarcoma
+S-12-6321	9	1	14283	17.62306	S12-6321 p5	PXA	In_Study	PXA
+S-12-6321	9	2	14284	121.64	S12-6321 p5	PXA	In_Study	PXA
+S-12-6321	9	3	14285	54.384	S12-6321 p7	PXA	In_Study	PXA
+S-12-6321	9	4	14286	107.55	S12-6321 p7	PXA	In_Study	PXA
+ES-2	4	13	14210	129.52	ES-2 p14/17	Ewing sarcoma	In_Study	Ewing sarcoma
+ES-2	4	10	14207	25.2692	ES-2 p14/16	Ewing sarcoma	In_Study	Ewing sarcoma
+ES-2	4	11	14208	55.7036	ES-2 p14/16	Ewing sarcoma	In_Study	Ewing sarcoma
+ES-2	4	12	14209	97.252	ES-2 p14/17	Ewing sarcoma	In_Study	Ewing sarcoma
 ES-1	4	5	14202	97.2	ES-1 p9/13	Ewing sarcoma	In_Study	Ewing sarcoma
 ES-1	4	6	14203	40.798	ES-1 p9/13	Ewing sarcoma	In_Study	Ewing sarcoma
 ES-1	4	7	14204	102.214	ES-1 p9/14	Ewing sarcoma	In_Study	Ewing sarcoma
 ES-1	4	8	14205	96.696	ES-1 p9/14	Ewing sarcoma	In_Study	Ewing sarcoma
-Rh-10	7	1	14249	75.504	RH10 p49	Alveolar RMS	In_Study	ARMS
-Rh-10	7	2	14250	68.24	RH10 p49	Alveolar RMS	In_Study	ARMS
-Rh-10	7	3	14251	99.5268	RH10 p50	Alveolar RMS	In_Study	ARMS
-Rh-10	7	4	14252	95.97153	RH10 p50	Alveolar RMS	In_Study	ARMS
-KT-16	2	13	14176	112.52	KT-16 p49	Extracranial Rhabdoid	Not_In_Study	Rhabdoid
-KT-16	2	10	14173	116.06	KT-16 p47	Extracranial Rhabdoid	Not_In_Study	Rhabdoid
-KT-16	2	11	14174	29.883	KT-16 p47	Extracranial Rhabdoid	Not_In_Study	Rhabdoid
-KT-16	2	12	14175	97.43	KT-16 p49	Extracranial Rhabdoid	Not_In_Study	Rhabdoid
-ES-3	4	17	14214	102.678	ES-3 p17/23	Ewing sarcoma	Not_In_Study	Ewing sarcoma
-ES-3	4	14	14211	111.11	ES-3 p17/20	Ewing sarcoma	Not_In_Study	Ewing sarcoma
-ES-3	4	15	14212	77.066	ES-3 p17/20	Ewing sarcoma	Not_In_Study	Ewing sarcoma
-ES-3	4	16	14213	89.824	ES-3 p17/23	Ewing sarcoma	Not_In_Study	Ewing sarcoma
+Rh-10	7	1	14249	75.504	RH10 p49	Alveolar RMS	Not_In_Study	ARMS
+Rh-10	7	2	14250	68.24	RH10 p49	Alveolar RMS	Not_In_Study	ARMS
+Rh-10	7	3	14251	99.5268	RH10 p50	Alveolar RMS	Not_In_Study	ARMS
+Rh-10	7	4	14252	95.97153	RH10 p50	Alveolar RMS	Not_In_Study	ARMS
+KT-16	2	13	14176	112.52	KT-16 p49	Extracranial Rhabdoid	In_Study	Rhabdoid
+KT-16	2	10	14173	116.06	KT-16 p47	Extracranial Rhabdoid	In_Study	Rhabdoid
+KT-16	2	11	14174	29.883	KT-16 p47	Extracranial Rhabdoid	In_Study	Rhabdoid
+KT-16	2	12	14175	97.43	KT-16 p49	Extracranial Rhabdoid	In_Study	Rhabdoid
+ES-3	4	17	14214	102.678	ES-3 p17/23	Ewing sarcoma	In_Study	Ewing sarcoma
+ES-3	4	14	14211	111.11	ES-3 p17/20	Ewing sarcoma	In_Study	Ewing sarcoma
+ES-3	4	15	14212	77.066	ES-3 p17/20	Ewing sarcoma	In_Study	Ewing sarcoma
+ES-3	4	16	14213	89.824	ES-3 p17/23	Ewing sarcoma	In_Study	Ewing sarcoma
 SK-NEP-1	3	17	14197	107.49	SK-NEP-1 p14	Ewing sarcoma	In_Study	Ewing sarcoma
 SK-NEP-1	3	14	14194	109.9	SK-NEP-1 p11	Ewing sarcoma	In_Study	Ewing sarcoma
 SK-NEP-1	3	15	14195	101.92	SK-NEP-1 p11	Ewing sarcoma	In_Study	Ewing sarcoma
@@ -83,14 +83,14 @@ KT-10	1	6	14152	156.4014	KT-10 p40	Wilms tumor	In_Study	Wilms tumor
 KT-10	1	7	14153	149.05	KT-10 p40	Wilms tumor	In_Study	Wilms tumor
 KT-10	1	8	14154	68.404	KT-10 p44	Wilms tumor	In_Study	Wilms tumor
 KT-10	1	9	14155	101.63	KT-10 p44	Wilms tumor	In_Study	Wilms tumor
-G401	3	13	14193	191.3587	G401 p10/4	Extracranial Rhabdoid	In_Study	Rhabdoid
-G401	3	10	14190	59.9228	G401 p10/3	Extracranial Rhabdoid	In_Study	Rhabdoid
-G401	3	11	14191	90.268	G401 p10/3	Extracranial Rhabdoid	In_Study	Rhabdoid
-G401	3	12	14192	142.5977	G401 p10/4	Extracranial Rhabdoid	In_Study	Rhabdoid
-Rh-28	7	13	14261	138.22	RH28 p26	Alveolar RMS	Not_In_Study	ARMS
-Rh-28	7	10	14258	127.84818	RH28 p21	Alveolar RMS	Not_In_Study	ARMS
-Rh-28	7	11	14259	121.99	RH28 p21	Alveolar RMS	Not_In_Study	ARMS
-Rh-28	7	12	14260	155.8005	RH28 p26	Alveolar RMS	Not_In_Study	ARMS
+G401	3	13	14193	191.3587	G401 p10/4	Extracranial Rhabdoid	Not_In_Study	Rhabdoid
+G401	3	10	14190	59.9228	G401 p10/3	Extracranial Rhabdoid	Not_In_Study	Rhabdoid
+G401	3	11	14191	90.268	G401 p10/3	Extracranial Rhabdoid	Not_In_Study	Rhabdoid
+G401	3	12	14192	142.5977	G401 p10/4	Extracranial Rhabdoid	Not_In_Study	Rhabdoid
+Rh-28	7	13	14261	138.22	RH28 p26	Alveolar RMS	In_Study	ARMS
+Rh-28	7	10	14258	127.84818	RH28 p21	Alveolar RMS	In_Study	ARMS
+Rh-28	7	11	14259	121.99	RH28 p21	Alveolar RMS	In_Study	ARMS
+Rh-28	7	12	14260	155.8005	RH28 p26	Alveolar RMS	In_Study	ARMS
 NCH-RBD-1	2	17	14180	118.45	NCH-RBD-1 p32	Extracranial Rhabdoid	In_Study	Rhabdoid
 NCH-RBD-1	2	14	14177	152.44	NCH-RBD 1 p5	Extracranial Rhabdoid	In_Study	Rhabdoid
 NCH-RBD-1	2	15	14178	103.356	NCH-RBD 1 p5	Extracranial Rhabdoid	In_Study	Rhabdoid
@@ -103,10 +103,10 @@ Rh-30R	8	17	14282	157.1519	RH30R p33	Alveolar RMS	In_Study	ARMS
 Rh-30R	8	14	14279	122.46	RH30R p30	Alveolar RMS	In_Study	ARMS
 Rh-30R	8	15	14280	141.0467	RH30R p30	Alveolar RMS	In_Study	ARMS
 Rh-30R	8	16	14281	136.54865	RH30R p33	Alveolar RMS	In_Study	ARMS
-ES-7	5	13	14227	165	ES-7 p28/31	Ewing sarcoma	Not_In_Study	Ewing sarcoma
-ES-7	5	10	14224	131.91	ES-7 p28/34	Ewing sarcoma	Not_In_Study	Ewing sarcoma
-ES-7	5	11	14225	129.39	ES-7 p28/34	Ewing sarcoma	Not_In_Study	Ewing sarcoma
-ES-7	5	12	14226	135.63	ES-7 p28/31	Ewing sarcoma	Not_In_Study	Ewing sarcoma
+ES-7	5	13	14227	165	ES-7 p28/31	Ewing sarcoma	In_Study	Ewing sarcoma
+ES-7	5	10	14224	131.91	ES-7 p28/34	Ewing sarcoma	In_Study	Ewing sarcoma
+ES-7	5	11	14225	129.39	ES-7 p28/34	Ewing sarcoma	In_Study	Ewing sarcoma
+ES-7	5	12	14226	135.63	ES-7 p28/31	Ewing sarcoma	In_Study	Ewing sarcoma
 Rh-30	7	17	14265	162.1911	RH30 p36	Alveolar RMS	In_Study	ARMS
 Rh-30	7	14	14262	143.3	RH30 p35	Alveolar RMS	In_Study	ARMS
 Rh-30	7	15	14263	127.12	RH30 p35	Alveolar RMS	In_Study	ARMS
@@ -123,11 +123,11 @@ KT-13	2	1	14164	159.776	KT-13 p19	Wilms tumor	In_Study	Wilms tumor
 KT-13	2	2	14165	166.193	KT-13 p19	Wilms tumor	In_Study	Wilms tumor
 KT-13	2	3	14166	159.9831	KT-13 p28	Wilms tumor	In_Study	Wilms tumor
 KT-13	2	4	14167	158.97403	KT-13 p28	Wilms tumor	In_Study	Wilms tumor
-Rh-18	7	5	14253	164.7612	RH18 p65/31	Embryonal RMS	Not_In_Study	ERMS
-Rh-18	7	6	14254	166.3877	RH18 p65/31	Embryonal RMS	Not_In_Study	ERMS
-Rh-18	7	7	14255	170.4402	RH18 p65/33	Embryonal RMS	Not_In_Study	ERMS
-Rh-18	7	8	14256	167.81	RH18 p65/33	Embryonal RMS	Not_In_Study	ERMS
-KT-18	3	5	14185	171.953	KT-18 p3	Wilms tumor	In_Study	Wilms tumor
-KT-18	3	6	14186	180.93	KT-18 p3	Wilms tumor	In_Study	Wilms tumor
-KT-18	3	7	14187	160.797	KT-18 p11	Wilms tumor	In_Study	Wilms tumor
-KT-18	3	8	14188	165.453	KT-18 p11	Wilms tumor	In_Study	Wilms tumor
+Rh-18	7	5	14253	164.7612	RH18 p65/31	Embryonal RMS	In_Study	ERMS
+Rh-18	7	6	14254	166.3877	RH18 p65/31	Embryonal RMS	In_Study	ERMS
+Rh-18	7	7	14255	170.4402	RH18 p65/33	Embryonal RMS	In_Study	ERMS
+Rh-18	7	8	14256	167.81	RH18 p65/33	Embryonal RMS	In_Study	ERMS
+KT-18	3	5	14185	171.953	KT-18 p3	Wilms tumor	Not_In_Study	Wilms tumor
+KT-18	3	6	14186	180.93	KT-18 p3	Wilms tumor	Not_In_Study	Wilms tumor
+KT-18	3	7	14187	160.797	KT-18 p11	Wilms tumor	Not_In_Study	Wilms tumor
+KT-18	3	8	14188	165.453	KT-18 p11	Wilms tumor	Not_In_Study	Wilms tumor
