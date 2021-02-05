@@ -27,8 +27,9 @@ tree.gtex.tpm$Histology <- factor(tree.gtex.tpm$Histology, levels = c("Ewing sar
                                                                       "Muscle","Nerve","Ovary","Pancreas","Pituitary",
                                                                       "Prostate","Small Intestine","Salivary Gland","Skin","Stomach","Spleen",
                                                                       "Testis","Thyroid","Uterus","Cervix Uteri","Vagina"),order=T)
-tree.gtex.tpm$Dataset <- factor(tree.gtex.tpm$Dataset, levels = c("Human Tumors (TCCI)", "Human Normal (GTEx)"))
-
+tree.gtex.tpm$Dataset <- gsub(" \\(TCCI\\)","",tree.gtex.tpm$Dataset)
+tree.gtex.tpm$Dataset <- factor(tree.gtex.tpm$Dataset, levels = c("Human Tumors", "Human Normal (GTEx)"))
+# table(tree.gtex.tpm$Dataset)
 
 # load Histology Colors
 histo.colors <- read.delim("data/Histology-Colors.txt",header=T,sep = "\t")
@@ -44,11 +45,16 @@ fig1a <- ggplot(tree.gtex.tpm, aes(x=Histology,y=CD276_tpm,fill=Histology)) +
   facet_grid(cols = vars(Dataset), scales = "free", space = "free") +
   theme_bw() + 
   scale_fill_manual(values = histo.colors.plot1a) +
-  theme(axis.text.x = element_text(size = 8, angle = 45, hjust = 1,colour = "black"),
-        axis.title.y = element_text(size=8),axis.title.x=element_blank(), axis.text.y = element_text(size = 8,colour = "black"),
+  theme(axis.text.x = element_text(size = 6, angle = 45, hjust = 1,colour = "black"),
+        axis.title.y = element_text(size=8),axis.title.x=element_blank(), 
+        axis.text.y = element_text(size = 8,colour = "black"),
+        strip.text = element_text(size = 8),
         legend.position = "none") + 
   ylab("CD276 Transcripts per Million (tpm)")
 fig1a
+
+
+
 
 #### figure 1b ####
 
@@ -79,13 +85,15 @@ fig1b <- ggplot(pptc.tpm, aes(x=Histology,y=CD276_tpm,fill=Histology)) +
   theme_bw() + 
   scale_fill_manual(values = histo.colors.plot1b) +
   geom_jitter(shape=16, position=position_jitter(0.2),size=1,aes(color=InStudy),) + 
-  scale_color_manual(values = c("black",adjustcolor("lightgray",alpha.f=0.5))) +
-  theme(axis.text.x = element_text(size = 8, angle = 45, hjust = 1,colour = "black"),
-        axis.title.y = element_text(size=8),axis.title.x=element_blank(), axis.text.y = element_text(size = 8,colour = "black"),
+  scale_color_manual(values = c("black",adjustcolor("lightgray",alpha.f=.5))) +
+  theme(axis.text.x = element_text(size = 6, angle = 45, hjust = 1,colour = "black"),
+        axis.title.y = element_text(size=8),
+        axis.title.x=element_blank(), 
+        axis.text.y = element_text(size = 8,colour = "black"),
+        strip.text = element_text(size = 8),
         legend.position = "none") + 
   ylab("CD276 Transcripts per Million (tpm)")
 fig1b
-
 
 #### figure 2a ####
 
@@ -102,7 +110,7 @@ nbl.ihc$SAMPFACTOR <- factor(nbl.ihc$SAMPFACTOR,levels=nbl.order)
 
 # load Histology Colors
 histo.colors <- read.delim("data/Histology-Colors.txt",header=T,sep = "\t")
-# extract histology colors for Histologys/Tissues in plot
+# extract histology colors for Histologies/Tissues in plot
 histo.colors.plot2a <- histo.colors %>%
   dplyr::filter(Histology %in% nbl.ihc$Histology) %>%
   dplyr::pull(Color) %>%
@@ -110,16 +118,20 @@ histo.colors.plot2a <- histo.colors %>%
 
 fig2a <- ggplot(nbl.ihc,aes(x=SAMPFACTOR,y=H.Score,color=InStudy,fill=Histology)) + 
   geom_boxplot(color="black",outlier.shape = NA) + 
-  geom_point(size=0.5,aes(color=InStudy)) +
+  geom_point(size=1,aes(color=InStudy)) +
   scale_color_manual(values = c("black","darkgray")) +
   scale_fill_manual(values = histo.colors.plot2a) +
-  ggtitle("Neuroblastoma PDX TMA") +
+  facet_grid(cols = vars(nbl.ihc$Histology), scales = "free", space = "free") +
+  #ggtitle("Neuroblastoma PDX TMA") +
   xlab("") + ylab("CD276 H-Score") +
   theme_bw() + ylim(0,300) +
-  theme(title = element_text(size = 10,colour = "black"),
-        axis.text.x = element_text(size = 6, angle = 60, hjust=1, color="black"),
-        axis.title.y = element_text(size=6),axis.title.x=element_blank(), 
-        axis.text.y = element_text(size = 6,colour = "black"),legend.position = "none")
+  theme(title = element_text(size = 12,colour = "black"),
+        axis.text.x = element_text(size = 6, angle = 45, hjust=1, color="black"),
+        axis.title.y = element_text(size=8),
+        axis.title.x=element_blank(), 
+        axis.text.y = element_text(size = 8,colour = "black"),
+        strip.text = element_text(size=8),
+        legend.position = "none")
 fig2a
 
 #### figure 2b ####
@@ -137,7 +149,7 @@ os.ihc$SAMPFACTOR <- factor(os.ihc$SAMPFACTOR,levels=os.order)
 
 # load Histology Colors
 histo.colors <- read.delim("data/Histology-Colors.txt",header=T,sep = "\t")
-# extract histology colors for Histologys/Tissues in plot
+# extract histology colors for Histologiess/Tissues in plot
 histo.colors.plot2b <- histo.colors %>%
   dplyr::filter(Histology %in% os.ihc$Histology) %>%
   dplyr::pull(Color) %>%
@@ -145,16 +157,20 @@ histo.colors.plot2b <- histo.colors %>%
 
 fig2b <- ggplot(os.ihc,aes(x=SAMPFACTOR,y=H.Score,color=InStudy,fill=Histology)) + 
   geom_boxplot(color="black",outlier.shape = NA) + 
-  geom_point(size=0.5,aes(color=InStudy)) +
+  geom_point(size=1,aes(color=InStudy)) +
   scale_color_manual(values = c("black","darkgray")) +
   scale_fill_manual(values = histo.colors.plot2b) +
-  ggtitle("Osteosarcoma PDX TMA") +
+  facet_grid(cols = vars(os.ihc$Histology), scales = "free", space = "free") +
+  #ggtitle("Osteosarcoma PDX TMA") +
   xlab("") + ylab("CD276 H-Score") +
   theme_bw() + ylim(0,300) +
-  theme(title = element_text(size = 10,colour = "black"),
-        axis.text.x = element_text(size = 6, angle = 60, hjust=1, color="black"),
-        axis.title.y = element_text(size=6),axis.title.x=element_blank(), 
-        axis.text.y = element_text(size = 6,colour = "black"),legend.position = "none")
+  theme(title = element_text(size = 12,colour = "black"),
+        axis.text.x = element_text(size = 6, angle = 45, hjust=1, color="black"),
+        axis.title.y = element_text(size=8),
+        axis.title.x=element_blank(), 
+        axis.text.y = element_text(size = 8,colour = "black"),
+        strip.text = element_text(size=8),
+        legend.position = "none")
 fig2b
 
 #### figure 2c ####
@@ -185,17 +201,20 @@ histo.colors.plot2c <- histo.colors %>%
 
 fig2c <- ggplot(mix.ihc,aes(x=SAMPFACTOR,y=H.Score,color=InStudy,fill=Histology)) + 
   geom_boxplot(color="black",outlier.shape = NA) + 
-  geom_point(size=0.5,aes(color=InStudy)) +
+  geom_point(size=1,aes(color=InStudy)) +
   scale_color_manual(values = c("black","darkgray")) +
   scale_fill_manual(values = histo.colors.plot2c) +
   facet_grid(cols = vars(mix.ihc$Histology.Short), scales = "free", space = "free") +
-  ggtitle("Mixed Histology PDX TMA") +
+  #ggtitle("Mixed Histology PDX TMA") +
   xlab("") + ylab("CD276 H-Score") +
   theme_bw() + ylim(0,300) +
-  theme(title = element_text(size = 10,colour = "black"),
-        axis.text.x = element_text(size = 6, angle = 60, hjust=1, color="black"),
-        axis.title.y = element_text(size=6),axis.title.x=element_blank(), 
-        axis.text.y = element_text(size = 6,colour = "black"),legend.position = "none")
+  theme(title = element_text(size = 12,colour = "black"),
+        axis.text.x = element_text(size = 6, angle = 45, hjust=1, color="black"),
+        axis.title.y = element_text(size=8),
+        axis.title.x=element_blank(), 
+        axis.text.y = element_text(size = 8,colour = "black"),
+        strip.text = element_text(size=8),
+        legend.position = "none")
 fig2c
 
 #### figure 3a ####
@@ -235,12 +254,16 @@ fig3a <- ggplot(rtv, aes(x=SAMPID, y=percent_minRTV, fill=Histology)) +
   scale_fill_manual(values = histo.colors.plot3a) + 
   geom_point() +
   facet_grid(cols = vars(rtv$Histology.Short), scales = "free", space = "free") +
-  ylab("% Change in Minimum Relative Tumor Volume (RTV)") + xlab("Tumor Model") +
-  theme(axis.text.x = element_text(size = 6, angle = 45, hjust = 1,colour = "black"),
-        axis.title.y = element_text(size=6),axis.title.x=element_text(size=8),
+  ylab("% Change in minimum RTV") +
+  theme(axis.text.x = element_text(size = 6, angle = 45, hjust=1, color="black"),
+        axis.title.y = element_text(size=8),
+        axis.title.x=element_blank(), 
         axis.text.y = element_text(size = 6,colour = "black"),
-        legend.title = element_text(size=6), legend.text = element_text(size=6),
-        legend.position = "none",panel.grid.minor = element_blank(),panel.grid.major = element_blank())
+        legend.title = element_text(size=6), 
+        legend.text = element_text(size=6),
+        strip.text = element_text(size=6),
+        legend.position = "none",panel.grid.minor = element_blank(),
+        panel.grid.major = element_blank())
 fig3a
 
 #### figure 3b ####
@@ -265,7 +288,7 @@ smt.rtv$Histology.Short <- factor(smt.rtv$Histology.Short, levels = c("ATRT","Ew
 
 # load Histology Colors
 histo.colors <- read.delim("data/Histology-Colors.txt",header=T,sep = "\t")
-# extract histology colors for Histologys/Tissues in plot
+# extract histology colors for Histologies/Tissues in plot
 histo.colors.plot3b <- histo.colors %>%
   dplyr::filter(Histology %in% smt.rtv$Histology) %>%
   dplyr::pull(Color) %>%
@@ -278,14 +301,17 @@ fig3b <- ggplot(smt.rtv, aes(x=SAMPID, y=percent_minRTV, fill=Histology)) +
   scale_fill_manual(values = histo.colors.plot3b) + 
   geom_point() +
   facet_grid(cols = vars(smt.rtv$Histology.Short), scales = "free", space = "free") +
-  ylab("% Change in Minimum Relative Tumor Volume (RTV)") + xlab("Tumor Model") +
-  theme(axis.text.x = element_text(size = 6, angle = 45, hjust = 1,colour = "black"),
-        axis.title.y = element_text(size=6),axis.title.x=element_text(size=8),
+  ylab("% Change in minimum RTV") +
+  theme(axis.text.x = element_text(size = 6, angle = 45, hjust=1, color="black"),
+        axis.title.y = element_text(size=8),
+        axis.title.x=element_blank(), 
         axis.text.y = element_text(size = 6,colour = "black"),
-        legend.title = element_text(size=6), legend.text = element_text(size=6),
-        legend.position = "none",panel.grid.minor = element_blank(),panel.grid.major = element_blank())
+        legend.title = element_text(size=6), 
+        legend.text = element_text(size=6),
+        strip.text = element_text(size=6),
+        legend.position = "none",panel.grid.minor = element_blank(),
+        panel.grid.major = element_blank())
 fig3b
-
 
 #### supplemental figure 1 ####
 
@@ -402,25 +428,25 @@ sfig.resp.b <- ggplot(ihc.allsamp.resp, aes(x=Objective_Response,y=medianHScore,
 sfig.resp.b
 
 #### stop ####
-#### save figures as PDFs ####
+#### save figures as PDF ####
 
-pdf("figures/pptc_cd276_Figure1.pdf",width = 8.5,height = 4)
+pdf("figures/pptc_cd276_Figure1.pdf",width = 6.5,height = 3)
 plot_grid(fig1a,fig1b, labels=c("A","B"), align = 'h', nrow = 1, rel_widths = c(1/1,1/3), label_size=12)
 dev.off()
 
-pdf("figures/pptc_cd276_Figure2.pdf",width = 11,height = 8.5)
+pdf("figures/pptc_cd276_Figure2.pdf",width = 6.5,height = 4.875)
 ggdraw() +
   draw_plot(fig2c, 0,.67,1,.33) +
-  draw_plot(fig2a,0,.25,1,.42) +
-  draw_plot(fig2b, 0,0,.5,.25) +
-  draw_plot_label(c("A","B","C"), c(0, 0, 0), c(1, 0.67, 0.25), size = 12)
+  draw_plot(fig2a,0,.27,1,.39) +
+  draw_plot(fig2b, 0,0,.5,.28) +
+  draw_plot_label(c("A","B","C"), c(0, 0, 0), c(1, 0.67, 0.3), size = 12)
 dev.off()
 
-pdf("figures/pptc_cd276_Figure3.pdf",width = 11,height = 8.5)
+pdf("figures/pptc_cd276_Figure3.pdf",width = 6.5,height = 5)
 ggdraw() +
-  draw_plot(fig3b, 0,.5,1,.5) +
-  draw_plot(fig3a,0,0,.6,.5) +
-  draw_plot_label(c("A","B"), c(0, 0), c(1, .5), size = 12)
+  draw_plot(fig3a,0,.5,.6,.5) +
+  draw_plot(fig3b, 0,0,1,.5) +
+  draw_plot_label(c("A","C"), c(0, 0), c(1, .5), size = 12)
 dev.off()
 
 pdf("figures/pptc_cd276_SFig1.pdf",width = 6,height = 6)
@@ -431,5 +457,36 @@ pdf("figures/pptc_cd276_SFig9.pdf",width = 8,height = 5)
 plot_grid(sfig.resp.a,sfig.resp.b, labels=c("A","B"), align = 'h', nrow = 1, rel_widths = c(.65,1), label_size=12)
 dev.off()
 
+#### prepare legend ####
 
+mix.ihc.slim
+nbl.ihc.slim
+os.ihc.slim
 
+total.ihc.slim <- rbind(mix.ihc.slim,rbind(nbl.ihc.slim,os.ihc.slim))
+
+total.ihc.plot <- histo.colors %>%
+  dplyr::filter(Histology %in% total.ihc.slim$Histology) %>%
+  dplyr::pull(Color) %>%
+  as.character()
+
+total.ihc.ggplot <- ggplot(total.ihc.slim,aes(x=SAMPID,y=medianHScore,fill=Histology)) + 
+  geom_boxplot(color="black",outlier.shape = NA) + 
+  geom_point(size=1) +
+  #scale_color_manual(values = c("black","darkgray")) +
+  scale_fill_manual(values = total.ihc.plot) +
+  #facet_grid(cols = vars(total.ihc.slim$Histology.Short), scales = "free", space = "free") +
+  #ggtitle("Mixed Histology PDX TMA") +
+  #xlab("") + ylab("CD276 H-Score") +
+  theme_bw() + ylim(0,300) +
+  theme(title = element_text(size = 12,colour = "black"),
+        axis.text.x = element_text(size = 6, angle = 45, hjust=1, color="black"),
+        axis.title.y = element_text(size=8),
+        axis.title.x=element_blank(), 
+        axis.text.y = element_text(size = 8,colour = "black"),
+        strip.text = element_text(size=8))
+total.ihc.ggplot
+
+# pdf("~/Desktop/figure-for-legend.pdf",width=5,height=5)
+# total.ihc.ggplot
+# dev.off()
